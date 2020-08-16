@@ -1,57 +1,90 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class LaserPointer : MonoBehaviour
 {
     public enum STATE { OFF, ON, PAUSED };
+
     public STATE state;
 
-    Light laserLight;
+    private Light laserLight;
+    private GameObject OnLight;
 
     public Action currentBehavior;
 
     public LayerMask layerMask;
-    Vector3 pointerOffset;
+    private Vector3 pointerOffset;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        state = STATE.OFF;
-        
-        currentBehavior = Pointer_OFF;
+        OnLight = transform.GetChild(0).gameObject;
+
+        laserLight = GetComponent<Light>();
         pointerOffset = new Vector3(0, transform.position.y, 0);
+
+        ChangeBehaviorTo(STATE.OFF);
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (state == STATE.OFF)
+                ChangeBehaviorTo(STATE.ON);
+            else
+                ChangeBehaviorTo(STATE.OFF);
+        }
         currentBehavior();
     }
 
+    public void ChangeBehaviorTo(STATE newState)
+    {
+        //Do not change state if state is the same
+        // if (newState == state) return;
+
+        //Else
+        switch (newState)
+        {
+            case STATE.OFF:
+                currentBehavior = Pointer_OFF;
+                OnLight.SetActive(false);
+                break;
+
+            case STATE.ON:
+                currentBehavior = Pointer_ON;
+                OnLight.SetActive(true);
+                break;
+
+            case STATE.PAUSED:
+                currentBehavior = Pointer_Paused;
+                break;
+        }
+        state = newState;
+    }
+
     #region Behaviors
-    void Pointer_OFF()
+
+    private void Pointer_OFF()
     {
-
-    }
-    void Pointer_On()
-    {
-
-
-
+        PostionPointerWithMouse();
     }
 
-    void Pointer_Paused()
+    private void Pointer_ON()
     {
-
+        PostionPointerWithMouse();
     }
 
-    #endregion
-
-    void PostionPointerWithMouse()
+    private void Pointer_Paused()
     {
+    }
 
+    #endregion Behaviors
+
+    private void PostionPointerWithMouse()
+    {
         //Determine if walkable
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); //create ray obj from camera to click point
         RaycastHit hit;
