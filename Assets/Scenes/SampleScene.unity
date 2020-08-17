@@ -242,9 +242,9 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.990566, g: 0, b: 0, a: 1}
   m_Intensity: 101.86
-  m_Range: 2.6968682
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 5.5130706
+  m_Range: 3.0034132
+  m_SpotAngle: 13.361361
+  m_InnerSpotAngle: 4.3615255
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -318,7 +318,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -495,10 +495,10 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.8396226, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_Intensity: 101.86
-  m_Range: 2.6968682
-  m_SpotAngle: 73.57486
+  m_Range: 3.4661007
+  m_SpotAngle: 30.72788
   m_InnerSpotAngle: 5.5130706
   m_CookieSize: 10
   m_Shadows:
@@ -620,7 +620,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1913036502}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.972}
+  m_LocalPosition: {x: 0, y: -0, z: 2.006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 669179349}
@@ -674,32 +674,14 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 0.7937603
+        time: 0.080508344
+        value: 0.41837266
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.28548768
-        value: 0.3047884
-        inSlope: -1.2061286
-        outSlope: -1.2061286
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.8942133
-      - serializedVersion: 3
-        time: 0.69493103
-        value: 0.10203552
-        inSlope: -0.4334553
-        outSlope: -0.4334553
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 1
-        outWeight: 0
       - serializedVersion: 3
         time: 1
         value: 0
@@ -715,7 +697,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -743,7 +725,7 @@ TrailRenderer:
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
-    alignment: 0
+    alignment: 1
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
